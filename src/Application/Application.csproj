@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Domain\" />
+    <None Remove="Domain\Post\" />
+    <None Remove="Domain\Comment\" />
+    <None Remove="Domain\Common\" />
+    <None Remove="Domain\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Domain\Post\" />
+    <Folder Include="Domain\Comment\" />
+    <Folder Include="Domain\Common\" />
+    <Folder Include="Domain\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+</Project>

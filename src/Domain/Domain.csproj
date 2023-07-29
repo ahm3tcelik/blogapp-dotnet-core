@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Post\" />
+    <None Remove="Comment\" />
+    <None Remove="Common\" />
+    <None Remove="User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Post\" />
+    <Folder Include="Comment\" />
+    <Folder Include="Common\" />
+    <Folder Include="User\" />
+  </ItemGroup>
+</Project>
