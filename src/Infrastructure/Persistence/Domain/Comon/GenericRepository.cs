@@ -1,42 +1,71 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Application.Domain.Common;
+using Application.Domain;
 using Domain;
+using Microsoft.EntityFrameworkCore;
+using Persistence.Exceptions;
 
 namespace Persistence.Domain
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : BaseEntity
     {
-        public Task<TEntity> Add(TEntity entity)
+        private readonly AppDbContext dbContext;
+        private readonly DbSet<TEntity> dbSet;
+
+        public GenericRepository(AppDbContext dbContext)
         {
-            throw new NotImplementedException();
+            this.dbContext = dbContext;
+            dbSet = dbContext.Set<TEntity>();
         }
 
-        public Task<TEntity> Delete(Guid id)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            await dbSet.AddAsync(entity);
+            await dbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<TEntity> GetAll(Expression<Func<TEntity, bool>>? filter)
+        public async Task<TEntity> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+
+            var entity = await dbSet.FindAsync(id);
+            if (entity != null)
+            {
+                dbSet.Remove(entity);
+                return entity;
+            }
+            throw new EntityNotFoundException($"{typeof(TEntity).FullName} with ID '{id}' not found.");
+
         }
 
-        public Task<TEntity> GetBy(Expression<Func<TEntity, bool>>? filter)
+        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>>? filter)
         {
-            throw new NotImplementedException();
+            if (filter == null)
+            {
+                return await dbSet.ToListAsync();
+            }
+            return await dbSet.Where(filter).ToListAsync();
         }
 
-        public Task<TEntity> GetById(Guid id)
+        public async Task<TEntity?> GetByAsync(Expression<Func<TEntity, bool>> filter)
         {
-            throw new NotImplementedException();
+            return await dbSet.SingleOrDefaultAsync(filter);
         }
 
-        public Task<TEntity> Update(TEntity entity)
+        public async Task<TEntity?> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await dbSet.FindAsync(id);
+        }
+
+        public async Task<TEntity> UpdateAsync(TEntity entity)
+        {
+            var updatedEntry = dbSet.Entry(entity);
+            updatedEntry.State = EntityState.Modified;
+            await dbContext.SaveChangesAsync();
+            return entity;
         }
     }
 }
 
+ 

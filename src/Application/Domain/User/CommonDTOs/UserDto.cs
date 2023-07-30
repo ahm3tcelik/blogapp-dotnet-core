@@ -1,11 +1,8 @@
 ﻿using System;
 namespace Application.Domain
 {
-	public class PostDto
+	public struct UserDto
 	{
-		public PostDto()
-		{
-		}
 	}
 }
 

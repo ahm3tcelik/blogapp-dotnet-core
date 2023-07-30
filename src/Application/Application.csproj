@@ -8,17 +8,39 @@
 
   <ItemGroup>
     <None Remove="Domain\" />
-    <None Remove="Domain\Post\" />
     <None Remove="Domain\Comment\" />
     <None Remove="Domain\Common\" />
     <None Remove="Domain\User\" />
+    <None Remove="Domain\User\Commands\" />
+    <None Remove="Domain\User\Queries\" />
+    <None Remove="Domain\Common\Persistence\" />
+    <None Remove="Domain\Post\" />
+    <None Remove="Domain\Common\CommonDTOs\" />
+    <None Remove="Domain\User\CommonDTOs\" />
+    <None Remove="Domain\Comment\Commands\" />
+    <None Remove="Domain\Comment\CommonDTOs\" />
+    <None Remove="Domain\Comment\Queries\" />
+    <None Remove="Domain\Post\Commands\" />
+    <None Remove="Domain\Post\Queries\" />
+    <None Remove="Domain\Post\CommonDTOs\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
-    <Folder Include="Domain\Post\" />
     <Folder Include="Domain\Comment\" />
     <Folder Include="Domain\Common\" />
     <Folder Include="Domain\User\" />
+    <Folder Include="Domain\User\Commands\" />
+    <Folder Include="Domain\User\Queries\" />
+    <Folder Include="Domain\Common\Persistence\" />
+    <Folder Include="Domain\Post\" />
+    <Folder Include="Domain\Common\CommonDTOs\" />
+    <Folder Include="Domain\User\CommonDTOs\" />
+    <Folder Include="Domain\Comment\Commands\" />
+    <Folder Include="Domain\Comment\CommonDTOs\" />
+    <Folder Include="Domain\Comment\Queries\" />
+    <Folder Include="Domain\Post\Commands\" />
+    <Folder Include="Domain\Post\Queries\" />
+    <Folder Include="Domain\Post\CommonDTOs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
