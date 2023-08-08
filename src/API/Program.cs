@@ -1,11 +1,22 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using BlogApp.API.Configuration;
+using MediatR;
 
-// Add services to the container.
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .Build();
+
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services
+    .AddEndpointsApiExplorer()
+    .AddSwaggerGen()
+    .AddAutoMapper(typeof(Program))
+    .AddMediatR(typeof(Program).Assembly);
+
+DependencyInjection.Register(builder.Services, configuration);
 
 var app = builder.Build();
 

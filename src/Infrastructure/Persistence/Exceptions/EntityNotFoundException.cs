@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Persistence.Exceptions
+namespace BlogApp.Infrastructure.Persistence.Exceptions
 {
     public class EntityNotFoundException : Exception
     {

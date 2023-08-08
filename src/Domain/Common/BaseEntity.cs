@@ -1,11 +1,10 @@
 ﻿using System;
-namespace Domain
+namespace BlogApp.Domain
 {
 	public class BaseEntity
 	{
-		public BaseEntity()
-		{
-		}
+		public DateTime CreatedAt;
+		public DateTime UpdatedAt;
 	}
 }
 

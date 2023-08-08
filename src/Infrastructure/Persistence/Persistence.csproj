@@ -8,13 +8,17 @@
 
   <ItemGroup>
     <None Remove="Domain\" />
-    <None Remove="Domain\Comon\" />
     <None Remove="Exceptions\" />
+    <None Remove="Domain\Common\" />
+    <None Remove="Migrations\" />
+    <None Remove="Domain\Hashtag\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
-    <Folder Include="Domain\Comon\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Domain\Common\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Domain\Hashtag\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Domain.csproj" />
@@ -27,5 +31,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
   </ItemGroup>
 </Project>

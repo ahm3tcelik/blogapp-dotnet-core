@@ -1,11 +1,13 @@
 ﻿using System;
-using Application.Domain;
-using Domain;
+using BlogApp.Domain;
 
-namespace Persistence.Domain
+namespace BlogApp.Infrastructure.Persistence.Domain
 {
     public class PostRepository : GenericRepository<Post>, IPostRepository
     {
-	}
+        public PostRepository(AppDbContext dbContext) : base(dbContext)
+        {
+        }
+    }
 }
 

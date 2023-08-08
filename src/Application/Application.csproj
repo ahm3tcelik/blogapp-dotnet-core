@@ -9,13 +9,10 @@
   <ItemGroup>
     <None Remove="Domain\" />
     <None Remove="Domain\Comment\" />
-    <None Remove="Domain\Common\" />
     <None Remove="Domain\User\" />
     <None Remove="Domain\User\Commands\" />
     <None Remove="Domain\User\Queries\" />
-    <None Remove="Domain\Common\Persistence\" />
     <None Remove="Domain\Post\" />
-    <None Remove="Domain\Common\CommonDTOs\" />
     <None Remove="Domain\User\CommonDTOs\" />
     <None Remove="Domain\Comment\Commands\" />
     <None Remove="Domain\Comment\CommonDTOs\" />
@@ -23,17 +20,19 @@
     <None Remove="Domain\Post\Commands\" />
     <None Remove="Domain\Post\Queries\" />
     <None Remove="Domain\Post\CommonDTOs\" />
+    <None Remove="Domain\Post\Commands\CreatePost\" />
+    <None Remove="Domain\User\Commands\CreateUser\" />
+    <None Remove="Domain\User\Mappers\" />
+    <None Remove="Domain\User\Queries\GetUser\" />
+    <None Remove="Domain\Hashtag\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Domain\Comment\" />
-    <Folder Include="Domain\Common\" />
     <Folder Include="Domain\User\" />
     <Folder Include="Domain\User\Commands\" />
     <Folder Include="Domain\User\Queries\" />
-    <Folder Include="Domain\Common\Persistence\" />
     <Folder Include="Domain\Post\" />
-    <Folder Include="Domain\Common\CommonDTOs\" />
     <Folder Include="Domain\User\CommonDTOs\" />
     <Folder Include="Domain\Comment\Commands\" />
     <Folder Include="Domain\Comment\CommonDTOs\" />
@@ -41,8 +40,17 @@
     <Folder Include="Domain\Post\Commands\" />
     <Folder Include="Domain\Post\Queries\" />
     <Folder Include="Domain\Post\CommonDTOs\" />
+    <Folder Include="Domain\Post\Commands\CreatePost\" />
+    <Folder Include="Domain\User\Commands\CreateUser\" />
+    <Folder Include="Domain\User\Mappers\" />
+    <Folder Include="Domain\User\Queries\GetUser\" />
+    <Folder Include="Domain\Hashtag\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
 </Project>

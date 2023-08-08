@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Application.Domain
+namespace BlogApp.Application
 {
 	public struct PostDto
 	{

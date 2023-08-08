@@ -1,11 +1,10 @@
 ﻿using System;
-using Domain;
 
-namespace Application.Domain
+namespace BlogApp.Domain
 {
-
 	public interface ICommentRepository : IGenericRepository<Comment>
 	{
+
 	}
 }
 

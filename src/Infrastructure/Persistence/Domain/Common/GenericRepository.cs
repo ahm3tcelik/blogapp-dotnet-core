@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Application.Domain;
-using Domain;
+using BlogApp.Domain;
 using Microsoft.EntityFrameworkCore;
-using Persistence.Exceptions;
+using BlogApp.Infrastructure.Persistence.Exceptions;
 
-namespace Persistence.Domain
+namespace BlogApp.Infrastructure.Persistence.Domain
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : BaseEntity
@@ -36,21 +35,20 @@ namespace Persistence.Domain
                 return entity;
             }
             throw new EntityNotFoundException($"{typeof(TEntity).FullName} with ID '{id}' not found.");
-
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>>? filter)
+        public IAsyncEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>>? filter)
         {
             if (filter == null)
             {
-                return await dbSet.ToListAsync();
+                return dbSet.AsAsyncEnumerable();
             }
-            return await dbSet.Where(filter).ToListAsync();
+            return dbSet.Where(filter).AsAsyncEnumerable();
         }
 
         public async Task<TEntity?> GetByAsync(Expression<Func<TEntity, bool>> filter)
         {
-            return await dbSet.SingleOrDefaultAsync(filter);
+            return await dbSet.FirstOrDefaultAsync(filter);
         }
 
         public async Task<TEntity?> GetByIdAsync(Guid id)

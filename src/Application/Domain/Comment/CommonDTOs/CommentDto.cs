@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Application.Domain
+namespace BlogApp.Application.Domain
 {
 	public struct CommentDto
 	{
